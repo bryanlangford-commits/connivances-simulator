@@ -1,0 +1,373 @@
+<title>Connivances Card Frames</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cinzel+Decorative:wght@700&display=swap">
+<style>
+  /* ── Single committed world: cards on a dark tabletop. Every colour painted explicitly. ── */
+  :root{
+    --table:#14150f; --felt:#191b12; --panel:#20221a; --panel-line:#33362a;
+    --parch:#e8d9b2; --parch-lo:#dcc891; --parch-band:#cbb178; --ink:#332715; --ink-soft:#5a4a2f;
+    --gold:#c69a34; --gold-lo:#8f6f22; --crimson:#7c1a20; --crimson-lo:#4e0f13;
+    --paper:#efe6cf;
+    /* guild identity */
+    --g-warrior:#b23aa0; --g-augury:#2f70b4; --g-builder:#3f7d33; --g-farmer:#c79a2c; --g-conjurer:#8a2226;
+    /* card-class borders */
+    --b-standard:#c49a3c; --b-conj:#8a1f18; --b-premium:#6a34a2; --b-monster:#5c2018; --b-starter:#9aa0a6;
+    --txt:#e9e0cb; --txt-dim:#a99f86; --eye:#c69a34;
+    --maxw:1180px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(120% 80% at 50% -10%, #1f2216 0%, var(--table) 60%),
+      var(--table);
+    color:var(--txt);
+    font-family:'EB Garamond',Georgia,serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+    padding:clamp(20px,5vw,64px) clamp(16px,4vw,40px) 80px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+
+  /* ── Masthead ── */
+  .eyebrow{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--eye);display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .eyebrow::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--gold-lo),transparent);}
+  h1{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:700;
+    font-size:clamp(30px,6vw,54px);line-height:1.02;color:#f3ead2;letter-spacing:.01em;
+    text-wrap:balance;text-shadow:0 2px 20px rgba(198,154,52,.18);}
+  .dek{font-size:clamp(16px,2.4vw,20px);color:var(--txt-dim);max-width:60ch;margin-top:16px;font-style:italic;}
+  .provenance{margin-top:22px;padding:14px 18px;border-left:3px solid var(--gold-lo);
+    background:rgba(198,154,52,.06);border-radius:0 8px 8px 0;font-size:15px;color:#cfc3a3;max-width:74ch;}
+  .provenance b{color:#e9dcb4;font-weight:500;}
+
+  section{margin-top:clamp(40px,7vw,72px);}
+  .sec-head{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--eye);margin-bottom:6px;}
+  .sec-sub{color:var(--txt-dim);max-width:70ch;margin-bottom:26px;font-size:15.5px;}
+
+  /* ── Card gallery ── */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:34px 26px;align-items:start;}
+  .slot{display:flex;flex-direction:column;gap:12px;}
+  .slot-cap{font-size:14.5px;color:var(--txt-dim);}
+  .slot-cap b{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:#dccfa8;display:block;margin-bottom:3px;}
+
+  /* ── THE CARD ── */
+  .card{position:relative;width:100%;aspect-ratio:5/7;border-radius:12px;padding:7px;
+    background:var(--b-standard);
+    box-shadow:0 14px 30px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.08);}
+  .card.warrior,.card.augury,.card.builder,.card.farmer,.card.conjurer-r{background:var(--b-standard);}
+  .card.conjuration{background:var(--b-conj);}
+  .card.premium{background:linear-gradient(150deg,#7d40bd,#4a1f7a);}
+  .card.starter{background:linear-gradient(150deg,#b9bec4,#7c828a);}
+  .card-inner{position:relative;height:100%;border-radius:7px;overflow:hidden;
+    display:grid;grid-template-rows:auto 1.02fr 1.15fr;
+    background:var(--parch);
+    background-image:
+      radial-gradient(140% 60% at 50% 0%, rgba(255,250,235,.5), transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+    border:1px solid rgba(60,40,15,.5);}
+
+  /* banner */
+  .banner{position:relative;z-index:3;margin:7px 7px 0;padding:7px 10px;text-align:center;
+    background:linear-gradient(#e6d7ab,#cdb27f);
+    border:1px solid rgba(90,64,20,.5);border-radius:5px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 1px 3px rgba(0,0,0,.25);}
+  .name{font-family:'Cinzel',serif;font-weight:700;color:#241a0c;font-size:16px;letter-spacing:.01em;
+    line-height:1.05;text-wrap:balance;}
+
+  /* art window */
+  .art{position:relative;margin:7px 8px 0;border-radius:4px;overflow:hidden;
+    border:1px solid rgba(20,12,4,.6);box-shadow:inset 0 0 22px rgba(0,0,0,.6);
+    display:flex;align-items:center;justify-content:center;min-height:0;}
+  .art .scene{position:absolute;inset:0;}
+  .art .ph{position:relative;z-index:2;text-align:center;color:rgba(255,246,225,.62);}
+  .art .ph .glyph{font-size:34px;filter:saturate(.7);opacity:.85;}
+  .art .ph .lab{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.22em;margin-top:4px;color:rgba(255,246,225,.55);}
+
+  /* text box */
+  .text{position:relative;margin:8px 9px 9px;padding:8px 8px 6px;color:var(--ink);
+    display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;
+    border-top:1px solid rgba(90,64,20,.25);}
+  .rules{font-size:12.5px;line-height:1.3;color:#38290f;font-style:italic;}
+  .rules b{font-style:normal;font-weight:600;}
+
+  /* corner gems / crest */
+  .crest,.cost,.combat,.def,.hp{position:absolute;z-index:6;display:flex;align-items:center;justify-content:center;
+    font-family:'Cinzel',serif;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.7);}
+  .crest{top:2px;left:2px;width:30px;height:34px;font-size:14px;color:#f6e2c0;
+    background:radial-gradient(circle at 50% 35%, #a8242c, #5e1216);
+    clip-path:polygon(50% 0,100% 18%,100% 66%,50% 100%,0 66%,0 18%);
+    box-shadow:0 2px 5px rgba(0,0,0,.5);}
+  .cost{top:3px;right:4px;width:34px;height:34px;font-size:17px;border-radius:50%;
+    background:radial-gradient(circle at 38% 32%, #7fb2e6, #235c93 70%, #16405f);
+    box-shadow:0 2px 6px rgba(0,0,0,.5), inset 0 1px 3px rgba(255,255,255,.4);
+    border:2px solid #d9c48c;}
+  .combat{width:30px;height:30px;font-size:15px;border-radius:50%;position:static;
+    background:radial-gradient(circle at 38% 30%, #f4d878, #b5851d 70%, #6d4b0e);
+    box-shadow:0 1px 4px rgba(0,0,0,.5), inset 0 1px 2px rgba(255,255,255,.5);border:1px solid #7a5a12;}
+  .def{bottom:4px;right:5px;width:34px;height:34px;font-size:16px;color:#3a2408;
+    background:radial-gradient(circle at 40% 32%, #ffe08a, #c98a1e 72%, #8a5a12);
+    border-radius:50% 50% 50% 12px;box-shadow:0 2px 6px rgba(0,0,0,.55);border:1px solid #7a520f;}
+  .inline-orbs{display:flex;gap:10px;align-items:center;justify-content:center;}
+  .orb{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Cinzel',serif;font-weight:700;color:#fff;font-size:14px;text-shadow:0 1px 2px rgba(0,0,0,.6);}
+  .orb.inf{background:radial-gradient(circle at 38% 32%, #7fb2e6, #235c93 70%);border:1px solid #16405f;color:#eaf3ff;}
+  .orb.gold{background:radial-gradient(circle at 38% 30%, #f4d878, #b5851d 70%);border:1px solid #6d4b0e;color:#3a2708;}
+  .orb.food{background:radial-gradient(circle at 40% 34%, #e9cf87, #b9932f 70%);border:1px solid #6d5310;color:#3a2c08;}
+
+  /* subtype ribbon (guild) */
+  .ribbon{position:absolute;top:34px;right:0;z-index:5;padding:3px 12px 3px 16px;
+    font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.06em;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.55);
+    background:var(--rib,#555);border-radius:4px 0 0 4px;box-shadow:0 2px 5px rgba(0,0,0,.4);}
+  .warrior{--rib:var(--g-warrior);}
+  .augury{--rib:var(--g-augury);}
+  .builder{--rib:var(--g-builder);}
+  .farmer{--rib:var(--g-farmer);}
+  .conjurer-r,.conjuration{--rib:var(--g-conjurer);}
+  /* vertical totem */
+  .totem{position:absolute;top:50px;right:6px;bottom:auto;z-index:4;width:20px;height:74px;border-radius:5px;
+    background:var(--rib,#555);opacity:.9;
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.18);
+    display:flex;flex-direction:column;align-items:center;justify-content:space-around;color:rgba(255,255,255,.75);font-size:11px;}
+  /* category tag on art */
+  .cat{position:absolute;right:6px;bottom:5px;z-index:5;font-family:'Cinzel Decorative','Cinzel',serif;
+    font-size:15px;font-weight:700;color:#f4c752;text-shadow:0 2px 4px rgba(0,0,0,.85);letter-spacing:.02em;}
+
+  /* ── MONSTER frame variant ── */
+  .card.monster{background:var(--b-monster);padding:6px;}
+  .card.monster .card-inner{grid-template-rows:auto 1fr auto;
+    background:linear-gradient(#e3d3a6,#d3bd8c);}
+  .m-tabs{position:absolute;left:-1px;top:44px;z-index:6;display:flex;flex-direction:column;gap:5px;}
+  .m-tab{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:.08em;color:#f2e4c2;
+    background:var(--crimson-lo);padding:3px 9px 3px 6px;border-radius:0 4px 4px 0;box-shadow:1px 1px 3px rgba(0,0,0,.4);}
+  .m-tab.aus{background:#3a2a12;color:#e9cf8f;}
+  .m-name{font-family:'Cinzel',serif;font-weight:700;font-size:15px;color:#2a1d0c;text-align:center;
+    padding:8px 8px 6px;}
+  .m-corner{position:absolute;z-index:6;width:26px;height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;
+    font-size:13px;color:#3a2408;background:radial-gradient(circle at 40% 32%, #ffe08a, #c98a1e 72%);border:1px solid #7a520f;}
+  .m-corner.tl{top:4px;left:4px;} .m-corner.bl{bottom:5px;left:5px;} .m-corner.br{bottom:5px;right:5px;}
+
+  /* ── AUSPICE (landscape) ── */
+  .auspice-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+  .aus-card{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;
+    border:2px solid rgba(255,255,255,.12);box-shadow:0 12px 26px rgba(0,0,0,.5);
+    display:flex;align-items:flex-end;color:#fff;}
+  .aus-card .scene{position:absolute;inset:0;}
+  .aus-card .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.15) 60%,transparent);}
+  .aus-body{position:relative;z-index:2;padding:16px 18px;}
+  .aus-title{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:700;font-size:26px;
+    color:#f6eccf;text-shadow:0 2px 8px rgba(0,0,0,.9);line-height:1;}
+  .aus-rule{margin-top:6px;font-size:14.5px;color:#eaddc0;font-style:italic;text-shadow:0 1px 4px rgba(0,0,0,.9);max-width:24ch;}
+
+  /* scenes (placeholder art tints per subject) */
+  .s-warrior{background:radial-gradient(circle at 50% 30%,#8a2f68,#2a1020);}
+  .s-builder{background:radial-gradient(circle at 50% 35%,#5b6472,#20242c);}
+  .s-conj{background:radial-gradient(circle at 50% 35%,#7a2a2f,#26100f);}
+  .s-monster{background:radial-gradient(circle at 50% 30%,#2b3550,#0f1420);}
+  .s-starter{background:radial-gradient(circle at 50% 35%,#6a5030,#241a10);}
+  .s-harvest{background:linear-gradient(120deg,#caa03a,#7a5a16);}
+  .s-mystic{background:radial-gradient(circle at 60% 45%,#a8323c,#3a0d18);}
+  .s-famine{background:linear-gradient(120deg,#4a4636,#20201a);}
+  .s-hunter{background:linear-gradient(120deg,#2c3140,#12141c);}
+
+  /* ── Reference panels ── */
+  .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+  .panel{background:var(--panel);border:1px solid var(--panel-line);border-radius:12px;padding:22px 22px 20px;}
+  .panel h3{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#e4d6ac;margin-bottom:16px;}
+  .legend-row{display:flex;align-items:center;gap:13px;padding:9px 0;border-top:1px solid rgba(255,255,255,.06);}
+  .legend-row:first-of-type{border-top:none;}
+  .legend-ic{width:34px;height:34px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:16px;font-family:'Cinzel',serif;font-weight:700;}
+  .legend-txt b{color:#ede2c2;font-weight:600;} .legend-txt span{color:var(--txt-dim);font-size:14px;}
+  .prop{background:rgba(198,154,52,.08);border:1px dashed var(--gold-lo);border-radius:8px;padding:6px 10px;
+    font-size:12px;color:#d9c78e;display:inline-block;margin-top:2px;font-style:italic;}
+
+  .swatches{display:flex;flex-direction:column;gap:10px;}
+  .sw{display:flex;align-items:center;gap:12px;}
+  .sw-chip{width:34px;height:20px;border-radius:4px;flex:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15);}
+  .sw b{color:#ede2c2;font-weight:600;font-size:14.5px;} .sw span{color:var(--txt-dim);font-size:13px;margin-left:6px;}
+
+  .open{margin-top:18px;background:rgba(124,26,32,.14);border:1px solid rgba(168,36,44,.4);border-radius:10px;padding:16px 20px;}
+  .open h3{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#f0c9a0;margin-bottom:10px;}
+  .open li{margin-left:18px;margin-bottom:7px;color:#e7d3b8;font-size:15px;}
+
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--panel-line);color:var(--txt-dim);font-size:13.5px;font-style:italic;}
+
+  @media (max-width:520px){
+    .gallery{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:26px 18px;}
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Visual System · Reconstructed</div>
+    <h1>Connivances Card Frames</h1>
+    <p class="dek">Your card frame language, rebuilt in code from the 2011 &amp; 2016 printouts and the physical deck; one faithful template per card class, ready to carry Midjourney art.</p>
+    <div class="provenance">Every frame here is <b>decoded from your own cards</b>, not invented: border colour encodes card <b>class</b>, the ribbon &amp; totem encode <b>guild</b>, and the corner marks carry <b>VP, cost, combat &amp; defence</b>. The art windows are deliberately empty; that slot is exactly what the art pipeline fills.</p>
+  </header>
+
+  <section>
+    <div class="sec-head">The Six Classes</div>
+    <p class="sec-sub">Each card below uses real data from the current build. The illustration is a labelled placeholder; swap in a portrait and the frame is finished.</p>
+
+    <div class="gallery">
+
+      <!-- STARTER -->
+      <div class="slot">
+        <div class="card starter">
+          <div class="card-inner" style="grid-template-rows:auto 1.1fr 0.9fr;">
+            <div class="banner"><div class="name">Devoted Aid</div></div>
+            <div class="art"><div class="scene s-starter"></div><div class="ph"><div class="glyph">🙏</div><div class="lab">ART WINDOW</div></div></div>
+            <div class="text"><div class="inline-orbs"><span class="orb inf">+1</span></div></div>
+          </div>
+        </div>
+        <div class="slot-cap"><b>Starter</b>Silver, stripped-down; no crest, cost or guild. The free basics.</div>
+      </div>
+
+      <!-- RECRUIT (Warrior) -->
+      <div class="slot">
+        <div class="card warrior">
+          <div class="crest">1</div><div class="cost">2</div>
+          <div class="card-inner">
+            <div class="banner"><div class="name">Pikeman</div></div>
+            <div class="art"><div class="scene s-warrior"></div>
+              <div class="ribbon">Warrior</div><div class="totem">✦<br>✦</div>
+              <div class="ph"><div class="glyph">⚔️</div><div class="lab">ART WINDOW</div></div></div>
+            <div class="text"><div class="inline-orbs"><span class="orb inf">+2</span></div>
+              <div class="rules">Reveal top of deck; if Warrior, draw it.</div></div>
+          </div>
+        </div>
+        <div class="slot-cap"><b>Recruit</b>Gold border · guild ribbon + totem (here Warrior magenta) · VP crest &amp; cost globe.</div>
+      </div>
+
+      <!-- BUILDING (Builder) -->
+      <div class="slot">
+        <div class="card builder">
+          <div class="crest">2</div><div class="cost">7</div><div class="def">6</div>
+          <div class="card-inner">
+            <div class="banner"><div class="name">Trophy Room</div></div>
+            <div class="art"><div class="scene s-builder"></div>
+              <div class="ribbon">Building</div><div class="cat">Library</div>
+              <div class="ph"><div class="glyph">🏛️</div><div class="lab">ART WINDOW</div></div></div>
+            <div class="text"><div class="rules">+1 <b>⚪ ATK</b> per active Trophy you control.</div>
+              <div class="rules"><b>(0/2)</b> Draw 2 cards.</div></div>
+          </div>
+        </div>
+        <div class="slot-cap"><b>Building</b>Gold border · category tag on the art (Library) · <b>DEF flame</b> bottom-right.</div>
+      </div>
+
+      <!-- CONJURATION -->
+      <div class="slot">
+        <div class="card conjuration">
+          <div class="crest">2</div><div class="cost">5</div><div class="def">2</div>
+          <div class="card-inner">
+            <div class="banner"><div class="name">Brood</div></div>
+            <div class="art"><div class="scene s-conj"></div>
+              <div class="ribbon">Creature</div><div class="cat">Animal</div>
+              <div class="ph"><div class="glyph">🐓</div><div class="lab">ART WINDOW</div></div></div>
+            <div class="text"><div class="inline-orbs"><span class="orb gold">+2</span></div>
+              <div class="rules">A summoned creature. <b>+2 🟡 combat.</b></div></div>
+          </div>
+        </div>
+        <div class="slot-cap"><b>Conjuration</b>Red border · gold <b>combat orb</b> for creature power · DEF flame.</div>
+      </div>
+
+      <!-- MONSTER -->
+      <div class="slot">
+        <div class="card monster">
+          <div class="m-corner tl">7</div><div class="m-corner bl">7</div>
+          <div class="card-inner">
+            <div class="m-tabs"><div class="m-tab aus">Mystic</div><div class="m-tab">Trophy</div></div>
+            <div class="m-name">Nightmare</div>
+            <div class="art" style="margin:4px 8px 0;"><div class="scene s-monster"></div>
+              <div class="ph"><div class="glyph">🔥</div><div class="lab">ART WINDOW</div></div></div>
+            <div class="text" style="border-top:none;padding-top:6px;"><div class="inline-orbs"><span class="orb gold">+3</span></div>
+              <div class="rules">When played: +3 ⚪ ATK. Retains Flying.</div></div>
+          </div>
+        </div>
+        <div class="slot-cap"><b>Monster</b>Maroon parchment · no guild; <b>auspice + Trophy</b> tabs · HP top-left, combat bottom.</div>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="slot">
+        <div class="card premium">
+          <div class="crest">1</div><div class="cost">6</div>
+          <div class="card-inner">
+            <div class="banner"><div class="name">Empress Dahlga</div></div>
+            <div class="art"><div class="scene s-warrior"></div>
+              <div class="ribbon builder">Builder</div><div class="totem builder">✦<br>✦</div>
+              <div class="ph"><div class="glyph">👑</div><div class="lab">ART WINDOW</div></div></div>
+            <div class="text"><div class="inline-orbs"><span class="orb gold">+2</span></div>
+              <div class="rules">A named, premium card.</div></div>
+          </div>
+        </div>
+        <div class="slot-cap"><b>Premium <span class="prop">meaning TBD</span></b>Purple border sits <em>over</em> a normal guild ribbon; a tier marker, orthogonal to guild.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">Auspices; the World-State Cards</div>
+    <p class="sec-sub">Not deck cards. Landscape, full-art banners that set the global rule in play; one title, one line.</p>
+    <div class="auspice-strip">
+      <div class="aus-card"><div class="scene s-harvest"></div><div class="veil"></div>
+        <div class="aus-body"><div class="aus-title">Harvest</div><div class="aus-rule">Farms yield +1 Food.</div></div></div>
+      <div class="aus-card"><div class="scene s-mystic"></div><div class="veil"></div>
+        <div class="aus-body"><div class="aus-title">Mystic</div><div class="aus-rule">Draw a card.</div></div></div>
+      <div class="aus-card"><div class="scene s-famine"></div><div class="veil"></div>
+        <div class="aus-body"><div class="aus-title">Famine</div><div class="aus-rule">Farms yield no Food.</div></div></div>
+      <div class="aus-card"><div class="scene s-hunter"></div><div class="veil"></div>
+        <div class="aus-body"><div class="aus-title">Hunter</div><div class="aus-rule">Move a card into Legend.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">The Icon Legend</div>
+    <p class="sec-sub">Your established marks, plus the Attack / Defence / Life split you flagged; shown as a proposal, since no printed card carries it yet.</p>
+    <div class="panels">
+
+      <div class="panel">
+        <h3>Established Marks</h3>
+        <div class="legend-row"><span class="legend-ic" style="background:radial-gradient(circle at 40% 32%,#7fb2e6,#235c93);color:#eaf3ff;">🌐</span><div class="legend-txt"><b>Influence</b>; <span>blue globe. Cost (top-right) and produced (+N).</span></div></div>
+        <div class="legend-row"><span class="legend-ic" style="background:radial-gradient(circle at 40% 34%,#e9cf87,#b9932f);color:#3a2c08;">🌾</span><div class="legend-txt"><b>Food</b>; <span>wheat sprig.</span></div></div>
+        <div class="legend-row"><span class="legend-ic" style="background:radial-gradient(circle at 50% 35%,#a8242c,#5e1216);color:#f6e2c0;border-radius:6px;">◆</span><div class="legend-txt"><b>Victory Points</b>; <span>red heraldic crest, top-left.</span></div></div>
+        <div class="legend-row"><span class="legend-ic" style="background:radial-gradient(circle at 38% 30%,#f4d878,#b5851d);color:#3a2708;">⚡</span><div class="legend-txt"><b>Combat / “Energy”</b>; <span>gold orb. The old single power stat.</span></div></div>
+        <div class="legend-row"><span class="legend-ic" style="background:radial-gradient(circle at 40% 32%,#ffe08a,#c98a1e);color:#3a2408;border-radius:50% 50% 50% 20%;">🔥</span><div class="legend-txt"><b>Defence</b>; <span>flame, bottom-right.</span></div></div>
+      </div>
+
+      <div class="panel" style="border-color:var(--gold-lo);">
+        <h3>Proposed. Combat Split <span class="prop">needs your call</span></h3>
+        <div class="legend-row"><span class="legend-ic" style="background:radial-gradient(circle at 40% 32%,#d0d6de,#7d8590);">⚔️</span><div class="legend-txt"><b>Attack</b>; <span>sword. Replaces the offensive half of the gold orb.</span></div></div>
+        <div class="legend-row"><span class="legend-ic" style="background:radial-gradient(circle at 40% 32%,#9fb6cf,#3f5b78);">🛡️</span><div class="legend-txt"><b>Defence</b>; <span>shield. Supersedes the flame.</span></div></div>
+        <div class="legend-row"><span class="legend-ic" style="background:radial-gradient(circle at 40% 32%,#e88a8a,#9c2b2b);">❤️</span><div class="legend-txt"><b>Life</b>; <span>heart. The new toughness / HP track.</span></div></div>
+        <p style="margin-top:14px;color:var(--txt-dim);font-size:13.5px;font-style:italic;">Tell me the exact mapping and I’ll wire these into every frame; until then the templates keep the orb + flame you’ve already printed.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Guild Palette</h3>
+        <div class="swatches">
+          <div class="sw"><span class="sw-chip" style="background:#b23aa0;"></span><span><b>Warrior</b><span>magenta</span></span></div>
+          <div class="sw"><span class="sw-chip" style="background:#2f70b4;"></span><span><b>Augury Mage</b><span>blue</span></span></div>
+          <div class="sw"><span class="sw-chip" style="background:#3f7d33;"></span><span><b>Builder</b><span>green</span></span></div>
+          <div class="sw"><span class="sw-chip" style="background:#c79a2c;"></span><span><b>Farmer</b><span>wheat</span></span></div>
+          <div class="sw"><span class="sw-chip" style="background:#8a2226;"></span><span><b>Conjurer</b><span>maroon</span></span></div>
+        </div>
+        <div class="open">
+          <h3>Open Questions</h3>
+          <ul>
+            <li><b>Purple border</b>; rarity, or a Legend/unique tier?</li>
+            <li><b>Combat split</b>; design the sword/shield/heart fresh, or match art you already have?</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>Reconstructed frame system for Connivances · placeholder art tints stand in for portraits · next step: lock the two open questions, then port these frames into the simulator and generate the art.</footer>
+</div>

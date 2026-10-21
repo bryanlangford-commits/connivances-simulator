@@ -1,0 +1,261 @@
+<title>Connivances Art Bible</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@600;700&display=swap">
+<style>
+  :root{
+    --table:#14150f; --panel:#20221a; --panel-2:#191b13; --line:#34372a;
+    --parch:#e8d9b2; --ink:#332715;
+    --gold:#c69a34; --gold-lo:#8f6f22; --vermilion:#c8452e; --indigo:#3a5a8c;
+    --txt:#e9e0cb; --txt-dim:#aaa088; --eye:#c69a34;
+    --g-warrior:#b23aa0; --g-augury:#2f70b4; --g-builder:#3f7d33; --g-farmer:#c79a2c; --g-conjurer:#8a2226; --g-monster:#8c3b2a;
+    --code-bg:#12130d; --code-line:#2c2e22; --code-tx:#e6dcb8;
+    --maxw:1040px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:radial-gradient(130% 80% at 50% -10%, #1f2216 0%, var(--table) 60%), var(--table);
+    color:var(--txt); font-family:'EB Garamond',Georgia,serif; line-height:1.62;
+    -webkit-font-smoothing:antialiased; padding:clamp(22px,5vw,64px) clamp(16px,4vw,40px) 90px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  .eyebrow{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--eye);display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .eyebrow::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--gold-lo),transparent);}
+  h1{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:700;font-size:clamp(30px,6.4vw,56px);
+    line-height:1.03;color:#f3ead2;text-wrap:balance;text-shadow:0 2px 22px rgba(198,154,52,.18);}
+  .jp{font-family:'Shippori Mincho',serif;color:var(--gold);font-weight:600;letter-spacing:.08em;}
+  .dek{font-size:clamp(16px,2.4vw,20px);color:var(--txt-dim);max-width:60ch;margin-top:16px;font-style:italic;}
+
+  section{margin-top:clamp(42px,7vw,74px);}
+  .sec-head{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--eye);margin-bottom:8px;}
+  h2{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(22px,3.6vw,30px);color:#f0e6cc;text-wrap:balance;margin-bottom:6px;}
+  .sec-sub{color:var(--txt-dim);max-width:72ch;margin-bottom:26px;font-size:16px;}
+  p{max-width:72ch;} p + p{margin-top:12px;}
+  a{color:var(--gold);}
+
+  /* identity band */
+  .thesis{font-size:clamp(19px,3vw,26px);line-height:1.4;color:#efe6cf;max-width:26ch;
+    border-left:3px solid var(--vermilion);padding:4px 0 4px 22px;font-style:italic;}
+  .thesis b{font-style:normal;color:#fff;}
+  .mats{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;}
+  .mat{font-size:13.5px;color:#e7dcbd;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 14px;}
+  .mat b{color:var(--gold);font-weight:500;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px;}
+  .col{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .col.no{border-color:rgba(200,69,46,.35);}
+  .col h3{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;}
+  .col.do h3{color:#8fca7a;} .col.no h3{color:#e08a72;}
+  .col li{list-style:none;padding:6px 0 6px 22px;position:relative;font-size:15px;color:#e3d9bf;}
+  .col.do li::before{content:"✔";position:absolute;left:0;color:#6fae57;}
+  .col.no li::before{content:"✕";position:absolute;left:0;color:#d0654e;}
+
+  /* code / prompt blocks */
+  .code{background:var(--code-bg);border:1px solid var(--code-line);border-left:3px solid var(--gold-lo);
+    border-radius:8px;padding:14px 16px;margin-top:16px;overflow-x:auto;}
+  .code pre{font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;font-size:13px;line-height:1.6;
+    color:var(--code-tx);white-space:pre-wrap;word-break:break-word;}
+  .code .fill{color:#f0c14b;} .code .flag{color:#7fb2e6;} .code .sref{color:#e08a72;}
+  .lbl{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:2px;display:block;}
+
+  /* steps */
+  .steps{counter-reset:s;display:flex;flex-direction:column;gap:16px;margin-top:8px;}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;}
+  .step::before{counter-increment:s;content:counter(s);font-family:'Cinzel',serif;font-weight:700;
+    width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    color:#1a160c;background:radial-gradient(circle at 40% 32%,#f0cf74,#b5851d);flex:none;font-size:16px;}
+  .step h4{font-family:'Cinzel',serif;font-size:15px;color:#efe4c6;letter-spacing:.02em;margin-bottom:3px;}
+  .step p{color:#d8cfb5;font-size:15px;margin:0;}
+  .step code{background:#12130d;border:1px solid var(--code-line);border-radius:4px;padding:1px 6px;font-family:ui-monospace,monospace;font-size:12.5px;color:#f0c14b;}
+
+  /* guild direction */
+  .guilds{display:flex;flex-direction:column;gap:18px;}
+  .guild{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:0;overflow:hidden;
+    display:grid;grid-template-columns:8px 1fr;}
+  .guild .rail{background:var(--gc,#666);}
+  .guild .body{padding:18px 22px 20px;}
+  .guild .gh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .guild .gname{font-family:'Cinzel',serif;font-weight:600;font-size:19px;color:#f2e8ce;}
+  .guild .gname .jp{font-size:15px;}
+  .guild .gtag{font-size:12.5px;color:var(--txt-dim);letter-spacing:.04em;}
+  .guild .cue{font-size:15px;color:#e0d6bc;margin:8px 0 2px;}
+  .guild .cue b{color:#f0e2ba;font-weight:600;}
+
+  /* examples grid */
+  .ex-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:8px;}
+  .callout{background:rgba(198,154,52,.07);border:1px solid var(--gold-lo);border-radius:12px;padding:16px 20px;margin-top:8px;}
+  .callout b{color:#f0e2ba;}
+
+  table.plan{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;}
+  table.plan th,table.plan td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.plan th{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--eye);}
+  table.plan td b{color:#ece1c2;}
+
+  footer{margin-top:66px;padding-top:22px;border-top:1px solid var(--line);color:var(--txt-dim);font-size:13.5px;font-style:italic;}
+  .tip{color:var(--txt-dim);font-size:14px;font-style:italic;margin-top:10px;}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Art Direction · Style Bible</div>
+    <h1>Connivances Art Bible</h1>
+    <p class="dek">One locked visual identity for every card portrait; a high-fantasy world seen through an East-Asian lens; plus the exact Midjourney recipe to produce it and the path into Godot.</p>
+  </header>
+
+  <section>
+    <div class="sec-head">The Look</div>
+    <p class="thesis"><b>High fantasy, told in a Japanese key.</b> Muromachi-era Japan meets myth; lacquered leather over plate, rice terraces over wheat fields, diviners over bishops.</p>
+    <p style="margin-top:20px;">The world leans <b>Sengoku Japan</b>; samurai and ashigaru, shrine and paddy, oni and ryū; but the arcane classes may drift toward a <b>broadly Northern-European</b> wizardry, so the sages and summoners read as a blend rather than pure one culture. Everything is <b>painterly and weathered</b>, never glossy anime cel-shading and never English-knight plate-and-portcullis.</p>
+    <div class="mats">
+      <span class="mat"><b>Armor:</b> lacquered leather lamellar (kozane), dō-maru</span>
+      <span class="mat"><b>Land:</b> terraced rice paddies, thatched minka</span>
+      <span class="mat"><b>Faith:</b> torii gates, ofuda talismans, miko</span>
+      <span class="mat"><b>Beasts:</b> yōkai, oni, serpentine ryū</span>
+      <span class="mat"><b>Palette:</b> indigo · persimmon · moss · ochre · charcoal</span>
+      <span class="mat"><b>Accent:</b> a single vermilion note</span>
+      <span class="mat"><b>Texture:</b> sumi-e ink-wash</span>
+    </div>
+    <div class="cols">
+      <div class="col do"><h3>Do</h3>
+        <li>Single subject, centered, strong silhouette</li>
+        <li>Weathered materials; wood, paper, lacquer, hemp</li>
+        <li>Muted earthy palette, one saturated accent</li>
+        <li>Dramatic directional light + atmospheric haze</li>
+        <li>Painterly concept-art brushwork</li>
+      </div>
+      <div class="col no"><h3>Don't</h3>
+        <li>European full plate, gothic castles, portcullises</li>
+        <li>Bright anime cel-shading or glossy 3D render</li>
+        <li>Busy backgrounds that fight the subject</li>
+        <li>Any text, border, frame or watermark in the image</li>
+        <li>Rainbow saturation; keep it grounded</li>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">The Constant</div>
+    <h2>The Locked Style Suffix</h2>
+    <p class="sec-sub">This tail goes on <em>every</em> card, unchanged. You only ever swap the subject clause in front of it. This; not the subjects; is what makes 100 cards look like one game.</p>
+    <div class="code"><span class="lbl">append to every prompt</span><pre>painterly high-fantasy illustration, single centered subject, three-quarter view,
+strong silhouette, dramatic directional lighting, warm key light with cool rim light,
+volumetric atmosphere, muted earthy palette of indigo persimmon moss-green ochre and
+charcoal with a single vermilion accent, subtle sumi-e ink-wash texture, weathered,
+grounded, painted trading-card art <span class="flag">--ar 4:3 --style raw --v 7</span> <span class="sref">--sref YOUR_CODE --sw 90</span> <span class="flag">--no text, border, frame, watermark, signature</span></pre></div>
+    <table class="plan">
+      <tr><th>Flag</th><th>Value</th><th>Why</th></tr>
+      <tr><td><b>--ar 4:3</b></td><td>landscape-ish</td><td>Matches the art window in your frames; the frame masks the edges, so keep the subject centered.</td></tr>
+      <tr><td><b>--style raw</b></td><td>on</td><td>Less of Midjourney's auto-prettifying, more faithful to your prompt.</td></tr>
+      <tr><td><b>--v 7</b></td><td>latest, fixed</td><td>Use the current version; but pick one and never change it mid-set, or the look drifts.</td></tr>
+      <tr><td><b>--sref</b></td><td>your locked code</td><td>The cohesion anchor. Same code on every card. (See the ritual below.)</td></tr>
+      <tr><td><b>--sw 90</b></td><td>style weight</td><td>How hard the sref pulls. ~90 keeps subjects legible while staying on-style; lower if faces get muddy.</td></tr>
+      <tr><td><b>--no …</b></td><td>negatives</td><td>Keeps text/borders out of the art; your frame provides all of that.</td></tr>
+    </table>
+    <p class="tip">Auspice banners are the one exception: use <code style="color:#f0c14b;">--ar 16:9</code> instead of 4:3, since they're wide full-art cards.</p>
+  </section>
+
+  <section>
+    <div class="sec-head">Cohesion</div>
+    <h2>The <span class="jp">sref</span> Ritual; do this once, first</h2>
+    <p class="sec-sub">Before generating a single card, you establish the one style reference every card will share. Half an hour here saves a hundred mismatched cards later.</p>
+    <div class="steps">
+      <div class="step"><div><h4>Generate hero candidates</h4><p>Run the locked suffix with 3–4 different subject clauses (a samurai, a paddy, a diviner); but <b>without</b> any <code>--sref</code> yet. You're auditioning the look, not the card.</p></div></div>
+      <div class="step"><div><h4>Pick the one that nails it</h4><p>Choose the single image whose mood, palette and brushwork feel most "Connivances." Upscale it.</p></div></div>
+      <div class="step"><div><h4>Lock its style code</h4><p>Grab that image's style reference; drag it into the prompt bar and Midjourney gives a <code>--sref</code> code (or use the image URL directly). That number is now sacred.</p></div></div>
+      <div class="step"><div><h4>Bolt it onto everything</h4><p>Every subsequent card prompt ends with that same <code>--sref YOUR_CODE</code>. Never regenerate it. If you ever want a fresh look, you restart the whole set; so commit.</p></div></div>
+    </div>
+    <p class="tip">Optional discovery trick: run <code>--sref random</code> a few times to stumble onto a look you love, then read the code it used and lock that.</p>
+  </section>
+
+  <section>
+    <div class="sec-head">Per-Guild Direction</div>
+    <h2>What each guild actually looks like</h2>
+    <p class="sec-sub">Swap only the front clause of the prompt. Below: the visual vocabulary per guild, plus one ready example each (add the locked suffix to every one).</p>
+    <div class="guilds">
+
+      <div class="guild" style="--gc:var(--g-warrior);"><div class="rail"></div><div class="body">
+        <div class="gh"><span class="gname">Warriors <span class="jp">武士</span></span><span class="gtag">samurai · ashigaru · lacquered leather</span></div>
+        <p class="cue"><b>Not plate; kozane.</b> Lamellar leather armor, dō-maru, sashimono back-banners, menpo masks; yari spears, naginata, katana. Foot-soldiers to daimyō. Siege units pair with great wooden war-engines.</p>
+        <div class="code"><span class="lbl">Pikeman (w1)</span><pre><span class="fill">An ashigaru foot-soldier bracing a long yari spear, lacquered leather lamellar armor, conical jingasa helmet, a sashimono banner rising from his back, battlefield haze behind,</span> painterly high-fantasy illustration … <span class="sref">--sref YOUR_CODE</span></pre></div>
+      </div></div>
+
+      <div class="guild" style="--gc:var(--g-farmer);"><div class="rail"></div><div class="body">
+        <div class="gh"><span class="gname">Farmers <span class="jp">百姓</span></span><span class="gtag">rice paddies · mino & kasa · water buffalo</span></div>
+        <p class="cue"><b>Rice, not wheat.</b> Terraced flooded paddies (tanada), straw mino raincoats and wide kasa hats, thatched farmhouses, harvest baskets, mirror-still water. Peaceful, earthy, working the land.</p>
+        <div class="code"><span class="lbl">Farmer (f1)</span><pre><span class="fill">A peasant farmer transplanting seedlings in a flooded terraced rice paddy, straw mino raincoat and wide conical kasa hat, water mirroring a soft sky, distant thatched minka,</span> painterly high-fantasy illustration … <span class="sref">--sref YOUR_CODE</span></pre></div>
+      </div></div>
+
+      <div class="guild" style="--gc:var(--g-augury);"><div class="rail"></div><div class="body">
+        <div class="gh"><span class="gname">Augury Mages <span class="jp">陰陽師</span></span><span class="gtag">onmyōji diviners · miko · a drift toward northern sages</span></div>
+        <p class="cue"><b>Diviners, blended.</b> Onmyōji reading the stars, shrine miko with mirrors and bells, paper talismans (ofuda), astrolabes; free to shade toward a long-robed, bearded Northern-European sage. Candlelit, contemplative.</p>
+        <div class="code"><span class="lbl">Oracle (a1)</span><pre><span class="fill">An onmyoji court diviner studying a floating star chart, flowing indigo robes, paper ofuda talismans drifting around a bronze astrolabe, candlelight and incense smoke,</span> painterly high-fantasy illustration … <span class="sref">--sref YOUR_CODE</span></pre></div>
+      </div></div>
+
+      <div class="guild" style="--gc:var(--g-conjurer);"><div class="rail"></div><div class="body">
+        <div class="gh"><span class="gname">Conjurers <span class="jp">召喚師</span></span><span class="gtag">summoners · shikigami · yōkai familiars</span></div>
+        <p class="cue"><b>Callers of spirits.</b> Summoners binding shikigami paper-spirits and yōkai; ink brush and talisman in hand. Their conjured creatures are yōkai-tinged; spirit-fowl, foxes, oni-kin; rather than western monsters.</p>
+        <div class="code"><span class="lbl">Conjure Master (c9)</span><pre><span class="fill">A robed summoner conjuring a swirl of glowing paper shikigami spirits, calligraphy brush trailing luminous ink, dark temple interior, embers of talismans in the air,</span> painterly high-fantasy illustration … <span class="sref">--sref YOUR_CODE</span></pre></div>
+      </div></div>
+
+      <div class="guild" style="--gc:var(--g-builder);"><div class="rail"></div><div class="body">
+        <div class="gh"><span class="gname">Builders <span class="jp">宮大工</span></span><span class="gtag">temple carpenters · castle keeps · scaffolding</span></div>
+        <p class="cue"><b>Miya-daiku, not masons.</b> Temple carpenters and engineers; construction of white-plaster castle keeps (tenshu) on stone bases, timber scaffolding, cranes, siege engines with an Eastern silhouette. Walls &amp; forts are Japanese castles.</p>
+        <div class="code"><span class="lbl">Walls / Fortress (bg3 / bg7)</span><pre><span class="fill">A towering Japanese castle keep, curved grey-tiled roofs over white plaster walls on a massive stone base, timber scaffolding along one wing, dramatic clouded sky,</span> painterly high-fantasy illustration … <span class="sref">--sref YOUR_CODE</span></pre></div>
+      </div></div>
+
+      <div class="guild" style="--gc:var(--g-monster);"><div class="rail"></div><div class="body">
+        <div class="gh"><span class="gname">Monsters &amp; the Portal <span class="jp">妖怪</span></span><span class="gtag">oni · ryū · a corrupted torii</span></div>
+        <p class="cue"><b>Yōkai and oni.</b> The Dragon is a serpentine, whiskered <b>ryū</b> (not a western wyvern); Gargantuan an <b>oni</b> ogre; Nightmare a flaming shadow-steed; Noxious Beast a poison yōkai. The <b>Portal</b> reads beautifully as a <b>corrupted torii gate</b> torn into the void.</p>
+        <div class="code"><span class="lbl">Dragon (mn_dragon) · Portal (mn_portal)</span><pre><span class="fill">A serpentine Eastern ryu dragon coiling through storm clouds, long whiskers, jade-and-gold scales, lightning behind,</span> painterly high-fantasy illustration … <span class="sref">--sref YOUR_CODE</span>
+
+<span class="fill">A corrupted torii shrine gate torn open into a swirling black void, ghost-fire lanterns, ominous mist,</span> painterly high-fantasy illustration … <span class="sref">--sref YOUR_CODE</span></pre></div>
+      </div></div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">The Recipe</div>
+    <h2>How to build any card prompt</h2>
+    <p class="sec-sub">One formula, every time: a specific subject clause, then the locked suffix. Keep the subject to what fills the frame; pose, materials, one environmental hint.</p>
+    <div class="code"><span class="lbl">the formula</span><pre><span class="fill">[SUBJECT: one figure or scene, specific pose, East-Asian material cues, one environment hint]</span>, <span style="color:#9fb6cf;">[LOCKED STYLE SUFFIX]</span> <span class="sref">--sref YOUR_CODE</span></pre></div>
+    <div class="callout"><b>Auspice banners</b> (Harvest / Mystic / Famine / Hunter) are wide scenes, no single figure required, and use <code style="color:#f0c14b;">--ar 16:9</code>:
+      <div class="code" style="margin-top:12px;"><pre><span class="fill">Golden terraced rice paddies at harvest, laborers gathering sheaves, warm autumn light</span> … <span class="flag">--ar 16:9</span> <span class="sref">--sref YOUR_CODE</span>
+<span class="fill">Withered dead rice paddies under a grey sky, bare black trees, a lone hooded reaper</span> … <span class="flag">--ar 16:9</span> <span class="sref">--sref YOUR_CODE</span></pre></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">Production</div>
+    <h2>Midjourney, step by step</h2>
+    <div class="steps">
+      <div class="step"><div><h4>Subscribe on a plan that allows commercial use &amp; relaxed hours</h4><p>Standard or Pro. This is a game, so you need commercial rights; those come with paid plans. Standard's <b>unlimited "relaxed" generations</b> are ideal for a 100-card batch; you don't need fast-GPU speed.</p></div></div>
+      <div class="step"><div><h4>Work in the web app</h4><p><a href="https://www.midjourney.com">midjourney.com</a> is easier than Discord for a big batch; grid view, easy re-runs, easy downloads. Set your defaults (version, style raw) once in settings.</p></div></div>
+      <div class="step"><div><h4>Run the sref ritual</h4><p>Lock your one <code>--sref</code> code first (see above). Everything after this reuses it.</p></div></div>
+      <div class="step"><div><h4>Generate card by card</h4><p>Paste the formula, swap the subject clause, submit. You get a 4-image grid. Pick the best; if none land, tweak the subject clause and re-run; the style holds because the suffix is fixed.</p></div></div>
+      <div class="step"><div><h4>Upscale &amp; download</h4><p>Upscale the chosen image, then download the upscaled file (~1024px+ is plenty for screen; you can super-resolve later for print).</p></div></div>
+      <div class="step"><div><h4>Name by card id</h4><p>Rename each file to its card id: <code>w1.png</code>, <code>bg4.png</code>, <code>mn_dragon.png</code>. This is the filename your frame loads; get it right and the art drops straight in.</p></div></div>
+      <div class="step"><div><h4>Keep the batch consistent</h4><p>Same <code>--sref</code>, same <code>--v</code>, same <code>--ar</code> across the whole deck. If you change any of them, the set stops matching.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">Handoff</div>
+    <h2>Into Godot</h2>
+    <p class="sec-sub">The <code style="background:#12130d;border:1px solid var(--code-line);padding:1px 6px;border-radius:4px;color:#f0c14b;">art/&lt;id&gt;.png</code> folder is portable; the same files the HTML sim loads import straight into Godot. Nothing you generate is throwaway.</p>
+    <table class="plan">
+      <tr><th>Piece</th><th>In Godot</th></tr>
+      <tr><td><b>The portraits</b></td><td>Drop <code>art/cards/&lt;id&gt;.png</code> into <code>res://</code>. Godot auto-imports as textures; set filter on, mipmaps for smooth scaling.</td></tr>
+      <tr><td><b>The art window</b></td><td>A <code>TextureRect</code> (keep-aspect-covered) inside the card scene, sized to your frame's window. Because every portrait is <b>4:3</b>, one mask fits all.</td></tr>
+      <tr><td><b>The frame</b></td><td>A <code>NinePatchRect</code> or a <code>StyleBoxFlat</code> in a Theme, <b>tinted by class</b> (gold/red/maroon/silver); you don't need frame images; reproduce the CSS frame as a StyleBox, same as the sim.</td></tr>
+      <tr><td><b>Icons &amp; totem</b></td><td>Small <code>TextureRect</code>/<code>Sprite2D</code> nodes for crest, globes, flame, guild totem; or a font-icon Theme.</td></tr>
+      <tr><td><b>The data</b></td><td>A custom <code>Resource</code> (<code>CardData</code>) holding stats + a <code>Texture2D</code> reference, so one data object drives name, numbers, tint, and portrait together; mirrors the sim's card objects.</td></tr>
+    </table>
+    <p class="tip">Rule of thumb: generate at a consistent size and aspect now, and the same assets serve the prototype today and the Godot build later.</p>
+  </section>
+
+  <footer>Connivances Art Bible · a high-fantasy world in a Japanese key · pair with the Card Frames kit · lock one <span class="jp">sref</span>, keep the suffix fixed, name by card id.</footer>
+</div>

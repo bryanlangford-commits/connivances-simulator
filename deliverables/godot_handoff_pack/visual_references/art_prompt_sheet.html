@@ -1,0 +1,222 @@
+<title>Connivances Prompt Sheet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500&family=Shippori+Mincho:wght@600&display=swap">
+<style>
+  :root{
+    --table:#14150f; --panel:#20221a; --line:#34372a;
+    --gold:#c69a34; --gold-lo:#8f6f22; --vermilion:#c8452e;
+    --txt:#e9e0cb; --txt-dim:#aaa088; --eye:#c69a34;
+    --code-bg:#12130d; --code-line:#2c2e22; --code-tx:#e6dcb8; --fill:#f0c14b;
+    --g-warrior:#b23aa0; --g-augury:#2f70b4; --g-builder:#3f7d33; --g-farmer:#c79a2c; --g-conjurer:#8a2226;
+    --g-neutral:#9aa0a6; --g-monster:#8c3b2a; --g-aus:#6a34a2;
+    --maxw:920px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:radial-gradient(130% 80% at 50% -10%, #1f2216 0%, var(--table) 60%), var(--table);
+    color:var(--txt);font-family:'EB Garamond',Georgia,serif;line-height:1.55;
+    -webkit-font-smoothing:antialiased;padding:clamp(22px,5vw,60px) clamp(16px,4vw,36px) 90px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  .eyebrow{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--eye);display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .eyebrow::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--gold-lo),transparent);}
+  h1{font-family:'Cinzel Decorative','Cinzel',serif;font-weight:700;font-size:clamp(28px,6vw,50px);
+    line-height:1.04;color:#f3ead2;text-wrap:balance;}
+  .dek{font-size:clamp(15px,2.3vw,19px);color:var(--txt-dim);max-width:62ch;margin-top:14px;font-style:italic;}
+
+  .how{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .how h3{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#e4d6ac;margin-bottom:10px;}
+  .how p{font-size:14.5px;color:#ddd2b6;max-width:74ch;} .how p + p{margin-top:7px;}
+  .how code{background:var(--code-bg);border:1px solid var(--code-line);border-radius:4px;padding:1px 6px;
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:var(--fill);}
+
+  .cat{margin-top:clamp(30px,5vw,48px);}
+  .cat-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+    border-bottom:2px solid var(--cc,#666);padding-bottom:8px;margin-bottom:4px;}
+  .cat-head .t{font-family:'Cinzel',serif;font-weight:600;font-size:20px;color:#f2e8ce;}
+  .cat-head .jp{font-family:'Shippori Mincho',serif;color:var(--cc,var(--gold));font-size:15px;}
+  .cat-head .n{font-size:12.5px;color:var(--txt-dim);margin-left:auto;letter-spacing:.04em;}
+
+  .row{padding:13px 0;border-bottom:1px solid var(--line);}
+  .rh{display:flex;align-items:baseline;gap:10px;margin-bottom:7px;}
+  .chip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:#1a160c;font-weight:600;
+    background:var(--cc,#c69a34);border-radius:4px;padding:2px 7px;letter-spacing:.02em;flex:none;}
+  .nm{font-family:'Cinzel',serif;font-weight:600;font-size:15.5px;color:#efe4c6;}
+  .clause{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.55;color:var(--code-tx);
+    background:var(--code-bg);border:1px solid var(--code-line);border-left:3px solid var(--cc,#8f6f22);
+    border-radius:7px;padding:9px 12px;overflow-x:auto;white-space:pre-wrap;word-break:break-word;}
+  .clause .ar{color:#7fb2e6;}
+  .supplied{border-left-color:var(--vermilion);color:#f0d8b8;font-style:italic;}
+
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--txt-dim);font-size:13.5px;font-style:italic;}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Production · Subject Clauses</div>
+    <h1>Connivances Prompt Sheet</h1>
+    <p class="dek">One ready subject clause for every card, keyed to its art-file id. Paste a clause, append the locked style suffix, generate. Copy-paste your way through the deck.</p>
+  </header>
+
+  <div class="how">
+    <h3>How to use this sheet</h3>
+    <p><b>Each clause is the FRONT of the prompt.</b> After it, append the locked suffix from the Art Bible: <code>… painterly high-fantasy illustration … --ar 4:3 --style raw --v 7 --sref YOUR_CODE --sw 90 --no text, border, frame, watermark, signature</code></p>
+    <p>Name the result by the <b>id chip</b> (e.g. <code>w1.png</code>) and drop it in <code>art/</code>. Auspices are wide; they carry their own <code class="ar">--ar 16:9</code>, shown inline. Fallah is your supplied image and is skipped.</p>
+  </div>
+
+  <!-- STARTERS -->
+  <div class="cat" style="--cc:var(--g-neutral);">
+    <div class="cat-head"><span class="t">Starters</span><span class="n">5 cards · silver frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">kn</span><span class="nm">King's Note</span></div><div class="clause">A rolled imperial edict sealed with red wax and a jade stamp on a lacquered writing desk, a calligraphy brush and inkstone beside it, warm lamplight,</div></div>
+    <div class="row"><div class="rh"><span class="chip">da</span><span class="nm">Devoted Aid</span></div><div class="clause">A humble bald monk in saffron robes bowing in devoted service, prayer beads wound around one hand, a quiet temple courtyard behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">rf</span><span class="nm">Rice Field</span></div><div class="clause">A small flooded rice paddy at dawn, young green seedlings in mirror-still water, a single thatched hut, soft mist,</div></div>
+    <div class="row"><div class="rh"><span class="chip">fh</span><span class="nm">Farm Hand</span></div><div class="clause">A young field laborer carrying a bundle of rice straw over one shoulder, mud-splashed, straw sandals, a paddy behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">ai</span><span class="nm">Augury Initiate</span></div><div class="clause">A youthful shrine acolyte in white robes holding a paper talisman, hopeful and uncertain, lantern light and incense,</div></div>
+  </div>
+
+  <!-- WARRIORS -->
+  <div class="cat" style="--cc:var(--g-warrior);">
+    <div class="cat-head"><span class="t">Warriors</span><span class="jp">武士</span><span class="n">9 cards · gold frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">w1</span><span class="nm">Pikeman</span></div><div class="clause">An ashigaru foot-soldier bracing a long yari spear, lacquered leather lamellar armor, conical jingasa helmet, a sashimono banner rising from his back, battlefield haze,</div></div>
+    <div class="row"><div class="rh"><span class="chip">w2</span><span class="nm">Swordsman</span></div><div class="clause">A ronin swordsman mid-draw of a katana, worn leather armor, calm lethal focus, falling snow around him,</div></div>
+    <div class="row"><div class="rh"><span class="chip">w3</span><span class="nm">Trainer</span></div><div class="clause">A grizzled veteran drilling recruits with a wooden bokken, stern instructor's stance, a training yard with straw dummies,</div></div>
+    <div class="row"><div class="rh"><span class="chip">w4</span><span class="nm">Negotiator</span></div><div class="clause">A silver-tongued envoy in fine haori over light armor, an open-handed gesture of parley, war-camp banners behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">w5</span><span class="nm">Siegeman</span></div><div class="clause">A samurai siege engineer directing a great wooden catapult, lacquered armor, pointing forward, war engines and smoke,</div></div>
+    <div class="row"><div class="rh"><span class="chip">w6</span><span class="nm">Hunter</span></div><div class="clause">A lean tracker-warrior nocking an arrow on a yumi longbow, fur-trimmed leather, crouched among snow-laden pines,</div></div>
+    <div class="row"><div class="rh"><span class="chip">w7</span><span class="nm">Commander</span></div><div class="clause">A battle commander raising a war fan (gunbai) to signal the charge, ornate lamellar armor, banners and massed troops behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">w8</span><span class="nm">Warlord</span></div><div class="clause">A daimyo warlord in resplendent lacquered armor and a horned kabuto helmet, commanding a ridge under a storm sky,</div></div>
+    <div class="row"><div class="rh"><span class="chip">w9</span><span class="nm">Vanguard</span></div><div class="clause">A vanguard shock-trooper charging with a naginata leveled, mid-stride, lightweight leather armor, dust and motion,</div></div>
+  </div>
+
+  <!-- AUGURY -->
+  <div class="cat" style="--cc:var(--g-augury);">
+    <div class="cat-head"><span class="t">Augury Mages</span><span class="jp">陰陽師</span><span class="n">9 cards · gold frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">a1</span><span class="nm">Oracle</span></div><div class="clause">An onmyoji diviner reading a floating star chart, indigo robes, a bronze astrolabe, drifting ofuda talismans, candlelight,</div></div>
+    <div class="row"><div class="rh"><span class="chip">a2</span><span class="nm">Mage Caller</span></div><div class="clause">A young mage raising a hand to summon a glowing sigil, calling forth aid, robes and talisman-streamers, a dim hall,</div></div>
+    <div class="row"><div class="rh"><span class="chip">a3</span><span class="nm">Channeler</span></div><div class="clause">A shrine miko channeling spirit energy through a polished bronze mirror, white and vermilion robes, radiant light,</div></div>
+    <div class="row"><div class="rh"><span class="chip">a4</span><span class="nm">Soothsayer</span></div><div class="clause">A blind seer casting yarrow divination rods, milky eyes, layered grey robes, incense smoke coiling upward,</div></div>
+    <div class="row"><div class="rh"><span class="chip">a5</span><span class="nm">Scribe</span></div><div class="clause">A temple scribe copying scrolls by candlelight, ink-stained fingers, brush and inkstone, shelves of rolled manuscripts,</div></div>
+    <div class="row"><div class="rh"><span class="chip">a6</span><span class="nm">Herbalist</span></div><div class="clause">An herbalist grinding roots in a stone mortar over a bubbling brew, drying herbs hanging overhead, steam rising,</div></div>
+    <div class="row"><div class="rh"><span class="chip">a7</span><span class="nm">Witchdoctor</span></div><div class="clause">A wild shaman-diviner in bone and feather ornaments, painted face, a trance gesture, spirit-fire and smoke,</div></div>
+    <div class="row"><div class="rh"><span class="chip">a8</span><span class="nm">Necromancer</span></div><div class="clause">A gaunt necromancer raising skeletal spirits from grave-soil, black robes, pale hands, cold blue witch-fire, bare winter trees,</div></div>
+    <div class="row"><div class="rh"><span class="chip">a9</span><span class="nm">Doomsayer</span></div><div class="clause">A grim prophet crying warning under a blood-red moon, ragged dark robes, one hand outstretched, crows scattering,</div></div>
+  </div>
+
+  <!-- BUILDERS -->
+  <div class="cat" style="--cc:var(--g-builder);">
+    <div class="cat-head"><span class="t">Builders</span><span class="jp">宮大工</span><span class="n">7 cards · gold frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">b1</span><span class="nm">House Hand</span></div><div class="clause">A young apprentice carpenter carrying timber and tools, sawdust and shavings, a half-built wooden framework behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">b2</span><span class="nm">Repair Master</span></div><div class="clause">A master carpenter mending a broken beam with mallet and chisel, focused craft, temple joinery around him,</div></div>
+    <div class="row"><div class="rh"><span class="chip">b3</span><span class="nm">Contractor</span></div><div class="clause">A construction foreman reviewing plans at a busy build site, rolled drawings in hand, scaffolding and cranes behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">b4</span><span class="nm">Expediter</span></div><div class="clause">A brisk works-manager hurrying materials along, gesturing urgently, carts of stone and timber, dust and motion,</div></div>
+    <div class="row"><div class="rh"><span class="chip">b5</span><span class="nm">Meurtrière</span></div><div class="clause">A fortification specialist fitting a narrow arrow-slit into a castle wall, measuring stone, a defensive rampart,</div></div>
+    <div class="row"><div class="rh"><span class="chip">b6</span><span class="nm">Fortifier</span></div><div class="clause">An engineer reinforcing a castle gate with iron banding and timber braces, sturdy focused labor, keep wall behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">b7</span><span class="nm">Demented Architect</span></div><div class="clause">A wild-eyed architect surrounded by impossible blueprints, manic genius, ink-splattered plans, a half-mad grin, candlelight,</div></div>
+  </div>
+
+  <!-- CONJURERS -->
+  <div class="cat" style="--cc:var(--g-conjurer);">
+    <div class="cat-head"><span class="t">Conjurers</span><span class="jp">召喚師</span><span class="n">9 cards · gold frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">c1</span><span class="nm">Conjurer's Aid</span></div><div class="clause">A robed acolyte offering a glowing talisman in cupped hands, a humble assistant, a dim temple, faint spirit-light,</div></div>
+    <div class="row"><div class="rh"><span class="chip">c2</span><span class="nm">Sacrificer</span></div><div class="clause">A ritualist offering a paper effigy to consuming flames, a solemn sacrifice, altar smoke, embers rising,</div></div>
+    <div class="row"><div class="rh"><span class="chip">c3</span><span class="nm">Handler</span></div><div class="clause">A beast-handler soothing a summoned yokai familiar at his side, calm command, a leash of talisman-paper, a misty grove,</div></div>
+    <div class="row"><div class="rh"><span class="chip">c4</span><span class="nm">Retinue</span></div><div class="clause">A pair of loyal armored retainers standing guard shoulder to shoulder, watchful, lacquered leather, banners behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">c5</span><span class="nm">Teramancer</span></div><div class="clause">An earth-summoner coaxing crops and spirits from tilled soil, part farmer part mage, green light over a paddy and grove,</div></div>
+    <div class="row"><div class="rh"><span class="chip">c6</span><span class="nm">Exorcist</span></div><div class="clause">An exorcist priest banishing a possessing spirit with a paper ofuda and a ringing bell, a radiant purge, a dark room,</div></div>
+    <div class="row"><div class="rh"><span class="chip">c7</span><span class="nm">Cleric</span></div><div class="clause">A healing priest laying hands to mend a wounded creature, a gentle glow, prayer beads, a calm sanctuary,</div></div>
+    <div class="row"><div class="rh"><span class="chip">c8</span><span class="nm">Enforcer</span></div><div class="clause">A stern warrior-monk enforcer cracking his knuckles, imposing, plain robes over heavy muscle, a temple gate behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">c9</span><span class="nm">Conjure Master</span></div><div class="clause">A master summoner conjuring a swirl of glowing paper shikigami spirits, a calligraphy brush trailing luminous ink, a dark temple, embers in the air,</div></div>
+  </div>
+
+  <!-- FARMERS -->
+  <div class="cat" style="--cc:var(--g-farmer);">
+    <div class="cat-head"><span class="t">Farmers</span><span class="jp">百姓</span><span class="n">5 cards · gold frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">f1</span><span class="nm">Farmer</span></div><div class="clause">A peasant transplanting rice seedlings in a flooded terraced paddy, a straw mino coat and wide kasa hat, mirror water, a distant minka,</div></div>
+    <div class="row"><div class="rh"><span class="chip">f2</span><span class="nm">Irrigator</span></div><div class="clause">A farmer opening a bamboo sluice to flood a paddy terrace, water rushing through channels, rolled trousers, wet earth,</div></div>
+    <div class="row"><div class="rh"><span class="chip">f3</span><span class="nm">Agriculturist</span></div><div class="clause">A knowledgeable farmer inspecting heavy ripe rice ears, a proud harvest, sun-browned face, golden terraced fields,</div></div>
+    <div class="row"><div class="rh"><span class="chip">f4</span><span class="nm">Reaper</span></div><div class="clause">A laborer cutting rice with a hand sickle at harvest, bundles of golden stalks, a stooped rhythm, warm autumn light,</div></div>
+    <div class="row"><div class="rh"><span class="chip">f5</span><span class="nm">Supplier</span></div><div class="clause">A village merchant tallying coin and grain at a trestle table, a ledger and abacus, sacks of rice, a busy market stall,</div></div>
+  </div>
+
+  <!-- FACTIONLESS -->
+  <div class="cat" style="--cc:var(--g-neutral);">
+    <div class="cat-head"><span class="t">Factionless</span><span class="n">1 card</span></div>
+    <div class="row"><div class="rh"><span class="chip">falla</span><span class="nm">Fallah</span></div><div class="clause supplied">★ Supplied by you; do NOT generate. Purple-eyed wanderer diving over a snowy waterfall-gorge, a great eagle above. Save as art/falla.png.</div></div>
+  </div>
+
+  <!-- BUILDINGS -->
+  <div class="cat" style="--cc:var(--g-builder);">
+    <div class="cat-head"><span class="t">Buildings</span><span class="jp">建物</span><span class="n">16 cards · gold frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">bg1</span><span class="nm">Tiered Field</span></div><div class="clause">Multi-tiered terraced rice paddies climbing a hillside, mirror-still flooded steps, stone retaining walls, soft dawn,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg2</span><span class="nm">Irrigated Field</span></div><div class="clause">A lush paddy fed by bamboo aqueducts and a wooden water wheel, green rice, channels glinting in the light,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg3</span><span class="nm">Walls</span></div><div class="clause">The white plaster curtain-walls of a Japanese castle on a massive fitted-stone base, curved tiled coping, banners flying,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg4</span><span class="nm">Catapult</span></div><div class="clause">A great wooden traction catapult crewed for war, taut ropes and counterweight, heavy timber engine, a war camp,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg5</span><span class="nm">Trophy Room</span></div><div class="clause">A lord's trophy hall of mounted armor, captured banners and relics on lacquered stands, candle-lit dark wood,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg6</span><span class="nm">Portcullis</span></div><div class="clause">A heavy iron-and-timber castle gate with a raised lattice grille, a fortified stone archway, torchlight,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg7</span><span class="nm">Fortress</span></div><div class="clause">A towering multi-tiered castle keep (tenshu) with white walls and grey curved roofs on a great stone base, storm sky,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg8</span><span class="nm">Dojo</span></div><div class="clause">A martial training hall, a polished wood floor and paper shoji screens, racked bokken and spears, warriors drilling,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg9</span><span class="nm">Trebuchet</span></div><div class="clause">A massive counterweight trebuchet drawn back to fire, a heavy timber frame, crew hauling ropes, the siege of a keep,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg10</span><span class="nm">Poison Room</span></div><div class="clause">An alchemist's poison workshop, bubbling vats and hanging noxious herbs, green vapor, jars of venom, a dim lab,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg11</span><span class="nm">Armory</span></div><div class="clause">A castle armory racked with katana, yari, bows and lacquered armor stands, ordered steel, torchlight,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg12</span><span class="nm">Scriptorium</span></div><div class="clause">A scroll library, towering shelves of rolled manuscripts, reading lecterns, dust motes in shafts of light,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg13</span><span class="nm">War Room</span></div><div class="clause">A war-council chamber, a great tactical map table with markers and fans, banners, generals' seats, lamplight,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg14</span><span class="nm">Granary</span></div><div class="clause">A raised wooden granary on stilts, sacks and barrels of rice within, a harvest bounty, a thatched roof,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg15</span><span class="nm">Caravan: Wayfarers' Court</span></div><div class="clause">A merchant caravan of laden ox-carts and travelers on a mountain road, colorful goods, banners, journeying dust,</div></div>
+    <div class="row"><div class="rh"><span class="chip">bg16</span><span class="nm">Caravan: Supply Route</span></div><div class="clause">A supply train of pack-horses and porters carrying rice and provisions along a snowy pass, roped bundles, cold breath,</div></div>
+  </div>
+
+  <!-- CONJURATIONS -->
+  <div class="cat" style="--cc:var(--g-conjurer);">
+    <div class="cat-head"><span class="t">Conjurations</span><span class="jp">召喚獣</span><span class="n">10 cards · red frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">j1</span><span class="nm">Brood</span></div><div class="clause">A brood of eerie spirit-fowl with faintly glowing eyes clustered in a misty farmyard, uncanny hens, pale fog,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j2</span><span class="nm">Armored Hound</span></div><div class="clause">A fierce armored guard-hound plated in lacquered scale, snarling, a spiked collar, a braced stance, a battlefield,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j3</span><span class="nm">Familiar</span></div><div class="clause">A small mystical multi-tailed fox-spirit familiar, luminous eyes, perched attentively, drifting spirit-light,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j6</span><span class="nm">Gryphon</span></div><div class="clause">A majestic winged gryphon, eagle fore and lion hind, ruffled feathers, soaring above snowy peaks, wings spread,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j7</span><span class="nm">Golem Defender</span></div><div class="clause">A hulking earthen clay golem inscribed with talisman-seals, a protective stance, cracked stone skin, guarding,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j9</span><span class="nm">Tiger</span></div><div class="clause">A great prowling tiger, muscles coiled, striped orange and black, a bamboo grove, a low aggressive snarl,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j10</span><span class="nm">Sir Cluckles</span></div><div class="clause">A comically regal rooster in tiny lacquered samurai armor perched atop a coop like a throne, absurdly dignified,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j4</span><span class="nm">Empowered Spell Book</span></div><div class="clause">An open glowing grimoire-scroll unfurling with luminous kanji and drifting pages, arcane light, a dark study,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j5</span><span class="nm">Dark Magic</span></div><div class="clause">A surge of black sorcery coiling from an outstretched hand, shadow tendrils and red sparks, an ominous ritual,</div></div>
+    <div class="row"><div class="rh"><span class="chip">j8</span><span class="nm">Amelioration</span></div><div class="clause">A radiant restorative spell, motes of golden light gathering and healing, a serene glow, a soft aura,</div></div>
+  </div>
+
+  <!-- POSSESSIONS -->
+  <div class="cat" style="--cc:var(--g-monster);">
+    <div class="cat-head"><span class="t">Possessions</span><span class="jp">憑物</span><span class="n">7 cards · red frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">p4</span><span class="nm">Nether Beast</span></div><div class="clause">A shadowy nether-beast clawing out of a rift, gaunt and hungry, void-black hide, cold mist,</div></div>
+    <div class="row"><div class="rh"><span class="chip">p1</span><span class="nm">Lesser Demon</span></div><div class="clause">A small horned lesser demon crouched and grinning malevolently, ember eyes, sinewy limbs, sulfur smoke,</div></div>
+    <div class="row"><div class="rh"><span class="chip">p3</span><span class="nm">Evil Possession</span></div><div class="clause">A malignant spirit coiling around and corrupting its host, ghostly tendrils, a sickly green aura, dread,</div></div>
+    <div class="row"><div class="rh"><span class="chip">p5</span><span class="nm">Cursed</span></div><div class="clause">A dark curse-mark spreading like creeping rot over stone and timber, a withering blight, an ominous shadow,</div></div>
+    <div class="row"><div class="rh"><span class="chip">p6</span><span class="nm">Haunting</span></div><div class="clause">A ghostly haunting seeping through a building, pale spectral figures in the doorways, cold blue mist, dread,</div></div>
+    <div class="row"><div class="rh"><span class="chip">p7</span><span class="nm">Undead Rising</span></div><div class="clause">Undead figures clawing up from disturbed earth, skeletal hands and rotted armor, grave-mist, night,</div></div>
+    <div class="row"><div class="rh"><span class="chip">p2</span><span class="nm">Demon</span></div><div class="clause">A towering horned demon wreathed in hellfire possessing a recruit, a malevolent grin, a red glow, smoke,</div></div>
+  </div>
+
+  <!-- MONSTERS -->
+  <div class="cat" style="--cc:var(--g-monster);">
+    <div class="cat-head"><span class="t">Monsters</span><span class="jp">妖怪</span><span class="n">10 cards · maroon frame</span></div>
+    <div class="row"><div class="rh"><span class="chip">mn_fiend</span><span class="nm">Fiend</span></div><div class="clause">A lean shadow-fiend wielding a great scythe, a body of tattered darkness, cold and reaping, grey mist,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_nightmare</span><span class="nm">Nightmare</span></div><div class="clause">A spectral flaming steed of black shadow galloping through a night sky, mane and hooves of blue fire, wings of smoke,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_ghoul</span><span class="nm">Ghoul Shaman</span></div><div class="clause">A withered ghoul-shaman rattling bone charms, a gaunt undead priest, tattered robes, sickly auspice-fire,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_minotaur</span><span class="nm">Minotaur</span></div><div class="clause">A massive ushi-oni bull-demon, horned and muscled, an iron ring in its nose, snorting steam, a dark cavern,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_stalker</span><span class="nm">Silent Stalker</span></div><div class="clause">A silent black-clad stalker moving like a shadow, a faceless assassin, a drawn blade, moonlit mist,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_gargantuan</span><span class="nm">Gargantuan</span></div><div class="clause">A colossal horned oni ogre clad in thick hide armor, an iron club, mountainous and menacing, a storm-lit ridge,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_dank</span><span class="nm">Dank Beast</span></div><div class="clause">A bloated swamp-yokai dripping with muck and rot, a glistening dank hide, fungal growths, fetid mist,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_dragon</span><span class="nm">Dragon</span></div><div class="clause">A serpentine Eastern ryu dragon coiling through storm clouds, long whiskers, jade-and-gold scales, lightning behind,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_noxious</span><span class="nm">Noxious Beast</span></div><div class="clause">A venomous plague-beast exhaling toxic green vapor, oozing pustules, poison mist, dead ground,</div></div>
+    <div class="row"><div class="rh"><span class="chip">mn_portal</span><span class="nm">The Portal</span></div><div class="clause">A corrupted torii shrine gate torn open into a swirling black void, ghost-fire lanterns, ominous mist, cracked stone,</div></div>
+  </div>
+
+  <!-- AUSPICES -->
+  <div class="cat" style="--cc:var(--g-aus);">
+    <div class="cat-head"><span class="t">Auspices</span><span class="jp">兆</span><span class="n">4 cards · landscape banners</span></div>
+    <div class="row"><div class="rh"><span class="chip">aus_harvest</span><span class="nm">Harvest</span></div><div class="clause">Golden terraced rice paddies at harvest, laborers gathering sheaves, warm autumn light, mountains beyond, <span class="ar">--ar 16:9</span></div></div>
+    <div class="row"><div class="rh"><span class="chip">aus_mystic</span><span class="nm">Mystic</span></div><div class="clause">A cosmic swirl of stars and a blood-red moon over a lonely mountain shrine, mystical aurora, deep indigo night, <span class="ar">--ar 16:9</span></div></div>
+    <div class="row"><div class="rh"><span class="chip">aus_famine</span><span class="nm">Famine</span></div><div class="clause">Withered dead rice paddies under a leaden sky, cracked mud, bare black trees, a lone hooded reaper, desolate, <span class="ar">--ar 16:9</span></div></div>
+    <div class="row"><div class="rh"><span class="chip">aus_hunter</span><span class="nm">Hunter</span></div><div class="clause">A lone ronin hunter under a full moon drawing a yumi bow at the tree line, mist and snow, silver light, <span class="ar">--ar 16:9</span></div></div>
+  </div>
+
+  <footer>87 clauses · append the locked suffix from the Art Bible · name each file by its id chip · Fallah supplied. Adjust any clause freely; the fixed suffix keeps the set coherent.</footer>
+</div>

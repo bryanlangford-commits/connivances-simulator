@@ -1,0 +1,15 @@
+# Heavy source/backup art: not needed by the single-file sim (the runnable index.html bakes
+# its art in, and no HTML references art/ paths). The canonical optimized art lives in the Godot repo.
+simulator/art/
+simulator/art2/
+
+# Personal / unrelated files that happen to sit in this folder
+*Work Search Log*.csv
+
+# Local Claude settings (keep agent defs, drop machine-local permissions)
+.claude/settings.local.json
+
+# OS cruft
+Thumbs.db
+.DS_Store
+desktop.ini
