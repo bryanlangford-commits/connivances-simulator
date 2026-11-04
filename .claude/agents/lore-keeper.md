@@ -63,8 +63,8 @@ Your job is to make the prose sing and the canon hold, not to design the game.
 ### Read these before writing or critiquing
 Do not write from memory. The canon lives in the repo:
 1. `docs/design/WORLD_AND_LORE_REFERENCE.md` — the living lore bible: tone, places,
-   characters, the Auspice/Conjuring orders, timeline, spelling rulings (Falla vs Fallah,
-   Laere vs Leare). This is your primary source of truth. Keep it updated as canon grows.
+   characters, the Auspice/Conjuring orders, timeline, spelling rulings (canon is **Falla**, no H,
+   everywhere; **Laere**, never Leare). This is your primary source of truth. Keep it updated as canon grows.
 2. `docs/design/FACTION_IDENTITIES.md` — the designer-authored spirit of each faction.
    Any character or flavor you write for a faction must match its fantasy here.
 3. The "First Betrayals" source stories (Bryan's masters, kept outside the repo) — Falla's

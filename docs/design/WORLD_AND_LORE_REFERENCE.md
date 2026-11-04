@@ -22,7 +22,7 @@ betrays you, "the tool that saves becomes the weapon") are the mechanical echo o
 - **Ancil** — a village whose cliff fronts collapsed ("The Great Portent," a famous scrying event).
 
 ## Characters
-- **Falla** (also spelled **Fallah** in places; the `falla` card art). An **Augury** initiate,
+- **Falla** (canonical spelling, no H; the `falla` card art file keeps its name). An **Augury** initiate,
   daughter of the merchant Jaord. Her gift: she reads and CHANGES the **Auspice** to bend a moment to
   advantage. In-world this IS the game's Auspice mechanic, personified. She sees portents/visions; a
   hidden society appears in candlelit visions. Recruited into the Augury order by **Rose**.
@@ -92,9 +92,10 @@ imperfectly leashed; every summon is a hand into the dark.
   Stone ward-stone lore) is the same young, barely-controlled deep magic.
 - **The Auspice** — Falla's personal gift; treat auspice-shifting as a rare, prized talent in flavor.
 
-## Spelling & naming conventions (CANONICAL, decided 2026-09-24)
-- **Fallah** (with the H) is the canonical spelling of her name. The card art FILE stays `falla` (do
-  not rename the asset), but all display text and prose use **Fallah**.
+## Spelling & naming conventions (CANONICAL, decided 2026-09-24; name ruling revised 2026-11-04)
+- **Falla** (no H) is the canonical spelling of her name, everywhere: prose, display text, and card
+  names (the `falla` card art file already matches). Bryan settled this on 2026-11-04, superseding the
+  earlier "Fallah" ruling. Never "Fallah".
 - **Laere** (A before the E: L-a-e-r-e) is canonical. Never "Leare".
 - **Theipeann** is the settled spelling for the village.
 
@@ -105,7 +106,5 @@ imperfectly leashed; every summon is a hand into the dark.
 - **Mannice remedy conflict.** This bible records the antivenom as turmeric + trigonostemon root, but
   the First Betrayals draft (ch. Read) has Jaord call for a "vial of garlic." Which is canon? (The
   draft was left as-is; not reconciled.)
-- **Prose spelling of Falla's name.** The naming conventions above make "Fallah" (with the H) canonical
-  for prose/display, with the asset file staying `falla`. The First Betrayals draft and the current
-  edit pass use "Falla" in prose per the edit brief. Confirm whether story prose uses "Falla" or
-  "Fallah" (and whether the H is card-art only).
+- ~~Prose spelling of Falla's name.~~ RESOLVED 2026-11-04: **Falla** (no H) everywhere. See the
+  naming conventions above.
