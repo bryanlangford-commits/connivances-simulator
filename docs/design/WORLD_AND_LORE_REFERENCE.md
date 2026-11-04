@@ -29,7 +29,11 @@ betrays you, "the tool that saves becomes the weapon") are the mechanical echo o
 - **Laere** (also spelled **Leare**). Falla's best friend, of the **Conjurer** order. Third-born of a
   family of scribes; an autodidact savant of the kingdom's knowledge. Summoned a great bird from
   forbidden old texts, something few Conjurers ever manage. Embodies the Conjurer order (summoning).
-- **Austis** — the **Minikowa** (great summoned bird) Laere raised. Bonded to Falla.
+- **Austis** — the **Minikowa** (great summoned bird) Laere raised. Bonded to Falla. Responds to a
+  whipped-arm-at-the-waist gesture as a command. Laere first triggered this unwittingly during an
+  argument, the first time Austis ever answered a gesture. During Falla's fall Austis attempts a
+  talon-rescue: Falla catches his talon for a moment, but the downbeat of his unfurling wings jolts
+  them apart and she falls into the piney forest. (Source: First Betrayals, ch. Falla.)
 - **Jaord** — Falla's father; runs the shop "Better than Goods" in the mercantile quarter.
 - **Kelvan** — Laere's father, a scribe; collapses from a **mannice** bite (a rare neurotoxic
   creature; antivenom is turmeric + trigonostemon root). Laere's deduction of the bite is his first
@@ -98,3 +102,10 @@ imperfectly leashed; every summon is a hand into the dark.
 - Name of the kingdom (currently unnamed).
 - Is the Four Horsemen / Long Winter event meant to fall on Theipeann specifically, or the wider
   kingdom? (Current game text says Theipeann, the village.)
+- **Mannice remedy conflict.** This bible records the antivenom as turmeric + trigonostemon root, but
+  the First Betrayals draft (ch. Read) has Jaord call for a "vial of garlic." Which is canon? (The
+  draft was left as-is; not reconciled.)
+- **Prose spelling of Falla's name.** The naming conventions above make "Fallah" (with the H) canonical
+  for prose/display, with the asset file staying `falla`. The First Betrayals draft and the current
+  edit pass use "Falla" in prose per the edit brief. Confirm whether story prose uses "Falla" or
+  "Fallah" (and whether the H is card-art only).

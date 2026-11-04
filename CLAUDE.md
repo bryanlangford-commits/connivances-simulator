@@ -34,6 +34,11 @@ as the project grows.
   escalation curves, monster victory conditions, loss states, the Seeping
   Portal pressure model. Owns V11 "creeping doom" design. Distinct from
   `tcg-designer` (card layer).
+- **lore-keeper** — narrative lead and story voice (Christie Golden x R.A.
+  Salvatore): prose drafting/editing, card flavor, character voice, and
+  worldbuilding continuity. Writes to `docs/design/narrative/` and maintains
+  `docs/design/WORLD_AND_LORE_REFERENCE.md`. Bryan owns canon; the agent drafts
+  and guards continuity, never retcons on its own authority.
 
 ## Key design docs
 
