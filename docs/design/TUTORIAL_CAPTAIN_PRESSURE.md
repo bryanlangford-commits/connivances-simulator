@@ -45,6 +45,23 @@ threatens the Stone (ATK 2 erosion), not the player's board; no Gore/disable in 
 tutorial. (4) DEF 6 is reachable per Bryan; tcg-designer may still confirm the ramp hits 6
 by ~turn 3.
 
+### Playtest reading (Bryan, 2026-11-07, Godot build)
+
+First live run of the as-built encounter confirms the ramp is not the binding constraint,
+and resolves open question (4) by observation.
+
+- **By turn 2 the pool was at 10 generic ATK** with the Stone at 24/30. Every raider
+  (DEF 3) and the Captain (DEF 6) read green (one-shottable) immediately. The ramp hits
+  6 well before turn 3, so (4) is settled: no change there.
+- **Damage is a non-issue; timing is the fight.** 10 ATK on turn 2 clears any single
+  target, so the pressure lives entirely in the Stone's crumble rate and the Muster
+  revives, exactly the §4 arc. The DEF-6 Captain is working as a timing gate, not a damage
+  gate. Hold the Captain at 6.
+- **Watch the opposite risk now: too easy.** If first-run feels trivial once more players
+  try it, the lever is the clock (faster Stone erosion, or an earlier or larger Muster),
+  not a tougher Captain. Left as-built pending more runs; revisit if the win lands before
+  the player feels any squeeze.
+
 ---
 
 ## 0. Where this sits
