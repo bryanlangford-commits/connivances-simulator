@@ -29,6 +29,17 @@ not branch the per-match rules. That keeps it aligned with "build general, not m
    allowed as base-deck-building cards. **Built:** `deliverables/Connivances_Card_Catalog_for_Unlocks.xlsx`
    (sheet "Player Cards": 88 candidates with Allowed?/Rarity/Unlock-tier/Notes columns;
    sheet "Reference": monsters/horsemen/auspices). Generated from the Godot `data/cards.json`.
+7. **The single-player journey is a "Campaign."** (Noted 2026-11-12.) The menu entry reads
+   **Campaign** (begin) / **Continue Campaign** (saved journey), framing the chapters as one
+   ongoing saga rather than a flat mode list. **A profile slot IS a campaign save.** The 2-3
+   profile slots exist partly so a player can **restart the campaign** on a fresh slot while
+   keeping another in progress — each slot its own campaign progress + (later) its own
+   unlocked collection and personalized decks. So profile state must carry **campaign
+   progress** (which chapters are done / where you are in the arc), alongside inventory and
+   unlocks. This is the player-facing reason the profile layer earns its keep before PvP
+   lands. **As-built now (Godot `onboarding` branch):** the menu already says Campaign /
+   Continue Campaign and chapters chain (`next_chapter`), but "Continue Campaign" currently
+   loads the one per-match save — real per-profile campaign progress is still this spec's job.
 
 ## Challenges / assessment (Bryan asked: "tell me the challenges")
 
